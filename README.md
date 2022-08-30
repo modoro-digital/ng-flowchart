@@ -1,6 +1,6 @@
 # NgFlowchart
 
-[Demo](https://joelwenzel.com/projects/flowchart?palette=standard) | [Npm](https://www.npmjs.com/package/@joelwenzel/ng-flowchart) | [Getting started](#getting-started) | [Wiki](https://github.com/joel-wenzel/ng-flowchart/wiki/NgFlowchart)
+[Demo](https://modoro.com/projects/flowchart?palette=standard) | [Npm](https://www.npmjs.com/package/@modoro/ng-flowchart) | [Getting started](#getting-started) | [Wiki](https://github.com/joel-wenzel/ng-flowchart/wiki/NgFlowchart)
 
 A lightweight Angular Library for building drag and drop flow charts. Chart behavior and steps are customizable. Data can be exported or uploaded in json format.
 
@@ -8,11 +8,10 @@ Inspired by [Alyssa X Flowy](https://github.com/alyssaxuu/flowy)
 
 # Contents
 
-- [Demo](https://joelwenzel.com/projects/flowchart?palette=standard)
+- [Demo](https://modoro.com/projects/flowchart?palette=standard)
 - [Supported Angular versions](#supported-angular-versions)
 - [Features](#features)
 - [Getting started](#getting-started)
-- [Contributers](#contributers)
 - [FAQ](#faq)
 - [Docs](https://github.com/joel-wenzel/ng-flowchart/wiki/NgFlowchart)
 
@@ -21,8 +20,6 @@ Inspired by [Alyssa X Flowy](https://github.com/alyssaxuu/flowy)
 - Angular 10.2.0+
 
 ## Change Log
-- 1.0.2-beta
-  - Support for canvas zoom/scale via mouse scroll or manual
 
 - 1.0.0-beta
   - Support for nested charts/canvases allowing multiple steps to converge back into one. [View StackBlitz](https://stackblitz.com/edit/ng-flowchart-nested?file=src/app/nested-flow/nested-flow.component.ts)
@@ -33,28 +30,41 @@ Inspired by [Alyssa X Flowy](https://github.com/alyssaxuu/flowy)
 
 ## Current and Upcoming Feature List
 
+- [NgFlowchart](#ngflowchart)
+- [Contents](#contents)
+  - [Supported Angular versions](#supported-angular-versions)
+  - [Change Log](#change-log)
+  - [Current and Upcoming Feature List](#current-and-upcoming-feature-list)
+- [Getting started](#getting-started)
+  - [If you enjoy it give it a star](#if-you-enjoy-it-give-it-a-star)
 - [Chart API](#chart-api)
-- [Getting Output JSON](#generating-output-json)
-- [Uploading from JSON](#uploading-json)
+  - [Flow Object Methods](#flow-object-methods)
+  - [Step Object Methods and Properties](#step-object-methods-and-properties)
+- [Generating Output JSON](#generating-output-json)
+- [Uploading JSON](#uploading-json)
 - [Controlling Behavior](#controlling-behavior)
+  - [Options](#options)
+  - [Callbacks](#callbacks)
 - [Custom Steps](#custom-steps)
 - [Theming](#theming)
-- [Storing step data](#storing-step-data)
-- [Disabling the chart](#disabling-the-chart)
+- [Storing Step Data](#storing-step-data)
+- [Disabling the Chart](#disabling-the-chart)
+- [FAQ](#faq)
+    - [Undefined variables in a callback](#undefined-variables-in-a-callback)
 
 # Getting started
 
 1. Install it.
 
 ```
-npm i --save @joelwenzel/ng-flowchart
+npm i --save @modoro/ng-flowchart
 ```
 
 2. Import it.  
    In your app module or module that contains your editor, import `NgFlowchartModule`.
 
 ```
-import { NgFlowchartModule } from '@joelwenzel/ng-flowchart';
+import { NgFlowchartModule } from '@modoro/ng-flowchart';
 
 @NgModule({
   imports: [
@@ -121,11 +131,6 @@ canvasElement: NgFlowchartCanvasDirective;
 
 ngOnInit() {
     let flow: NgFlowchart.Flow = this.canvasElement.getFlow();
-
-    // manual canvas zoom methods reside on the canvas directive directly
-    this.canvasElement.scaleDown()
-    this.canvasElement.scaleUp()
-    this.canvasElement.setScale(1) //resets back to default scale
 }
 ```
 
@@ -329,9 +334,6 @@ Options are passed via the **ngFlowchartOptions** input on the **ngFlowchartCanv
 - #### **centerOnResize**
   When a canvas resize is detected, should the flow be re-centered? Default is true
 
-- #### **zoom**
-  Canvas zoom options. Defaults to mouse WHEEL zoom with a step of .1 (10%)
-
 ## Callbacks
 
 Callbacks are passed via the **ngFlowchartCallbacks** input on the **ngFlowchartCanvas** directive.
@@ -383,16 +385,6 @@ onDropStep(dropEvent: NgFlowchart.DropEvent) {
 
   Called whenever an existing canvas step fails to move
 
-
-- #### **beforeDeleteStep?**: (step: NgFlowchartStepComponent) => void;
-
-  Called when the delete method has been called on the step
-
-- #### **afterDeleteStep?**: (step: NgFlowchartStepComponent) => void;
-
-  Called after the delete method has run on the step. If you need to access
-  step children or parents, use beforeDeleteStep
-
 - #### **onDropStep?**: (drop: DropEvent) => void;
   Called whenever a new step or existing step is successfully dropped on the canvas
 
@@ -402,8 +394,6 @@ onDropStep(dropEvent: NgFlowchart.DropEvent) {
 - #### **afterRender?**: (drop: DropEvent) => void;
   Called after the canvas completes a re-render
 
-- #### **afterScale?**: (newScale: number) => void
-  Called after the canvas has been scaled
 # Custom Steps
 
 Custom steps can be created if you need any kind of complex logic for specific steps. The example below is a custom step for a router which can be seen elsewhere on this page.
@@ -561,9 +551,6 @@ div#canvas[disabled="true"] ::ng-deep.ngflowchart-step-wrapper {
     opacity: .7;
 }
 ```
-
-# Contributers
-  * [michaelmarcuccio](https://github.com/michaelmarcuccio)
 
 # FAQ
 
