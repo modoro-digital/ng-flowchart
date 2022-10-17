@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
 import { NgFlowchart } from 'projects/ng-flowchart/src/lib/model/flow.model';
 import { NgFlowchartStepRegistry } from 'projects/ng-flowchart/src/lib/ng-flowchart-step-registry.service';
 import { NgFlowchartCanvasDirective } from 'projects/ng-flowchart/src/public-api';
@@ -7,7 +7,7 @@ import { CustomStepComponent } from './custom-step/custom-step.component';
 import { RouteStepComponent } from './custom-step/route-step/route-step.component';
 import { FormStepComponent, MyForm } from './form-step/form-step.component';
 import { NestedFlowComponent } from './nested-flow/nested-flow.component';
-
+declare var AutomationElement: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,8 +19,9 @@ export class AppComponent {
   callbacks: NgFlowchart.Callbacks = {};
   options: NgFlowchart.Options = {
     stepGap: 40,
-    rootPosition: 'TOP_START',
-    zoom: { mode: 'WHEEL', defaultStep: .1 }
+    rootPosition: 'TOP_CENTER',
+    zoom: { mode: 'DISABLED', defaultStep: .1 },
+    centerOnResize: true
   };
 
   @ViewChild('normalStep')
@@ -83,12 +84,15 @@ export class AppComponent {
   disabled = false;
 
 
-  constructor(private stepRegistry: NgFlowchartStepRegistry) {
-
+  constructor(
+    private stepRegistry: NgFlowchartStepRegistry,
+  ) {
     this.callbacks.onDropError = this.onDropError;
     this.callbacks.onMoveError = this.onMoveError;
+    this.callbacks.onDropStep = this.onDropStep.bind(this);
   }
 
+  // tslint:disable-next-line:typedef
   ngAfterViewInit() {
     // this.stepRegistry.registerStep('rest-get', this.normalStepTemplate);
     this.stepRegistry.registerStep('log', this.normalStepTemplate);
@@ -110,6 +114,11 @@ export class AppComponent {
 
   }
 
+  onDropStep(dropEvent: NgFlowchart.DropEvent) {
+    console.log(dropEvent);
+  }
+
+  
   showFlowData() {
 
     const json = this.canvas.getFlow().toJSON(4);

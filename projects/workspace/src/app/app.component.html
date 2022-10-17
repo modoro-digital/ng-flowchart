@@ -3,6 +3,7 @@
     id="canvas"
     ngFlowchartCanvas
     [ngFlowchartOptions]="options"
+    [ngFlowchartCallbacks]="callbacks"
     [disabled]="disabled"    
   ></div>
   <div id="palette">
@@ -77,3 +78,201 @@
     </ng-template>
   </div>
 </main>
+<!-- <main>
+  <div class="automation2">
+    <div class="diagram text-center scrollbar-inner">
+      <svg id="svg" style="overflow: auto" width="3800" height="6800" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text x="475" y="30" alignment-baseline="middle" text-anchor="middle">Automation starts when the following
+          trigger
+          condition is met</text>
+
+        <g id="trigger_group" class="trigger">
+          <g transform="translate(360,80)">
+            <rect id="trigger" _x="360" _y="80" rx="5" ry="5" width="220" height="32" class="element trigger"></rect><a
+              id="trigger_textlink"
+              xlink:href="https://stackoverflow.com/questions/34968082/how-to-add-a-link-inside-an-svg-circle"
+              style="cursor:pointer"><text x="110" y="16" alignment-baseline="middle" text-anchor="middle">
+                <tspan font-family="FontAwesome" fill="#fff" font-size="15px" alignment-baseline="middle"
+                  text-anchor="middle">&nbsp;&nbsp;</tspan>
+                <tspan id="trigger_title" font-family="Arial" fill="#fff" font-size="12px" alignment-baseline="middle"
+                  text-anchor="middle">New contact subscribes to mail list</tspan>
+              </text></a>
+          </g>
+          <g>
+            <g transform="translate(470,150)">
+              <circle id="trigger-plus" _cx="470" _cy="150" ctype="plus" r="16"
+                style="fill:#fff;stroke:rgb(101, 117, 138);stroke-width:1"></circle><a id="trigger-plus-iconlink"
+                xlink:href="#" style="cursor:pointer"><text x="0" y="3" font-size="24px" alignment-baseline="middle"
+                  text-anchor="middle" font-family="Arial" fill="#aaa">+</text></a>
+            </g>
+          </g>
+          <g id="trigger-plus_connector">
+            <g>
+              <circle id="circle1" cx="470" cy="112" _cx="470" _cy="112" r="4" fill="#aaa"></circle>
+            </g>
+            <g>
+              <circle id="circle2" cx="470" cy="134" _cx="470" _cy="134" r="0" fill="#aaa"></circle>
+            </g>
+            <path d="M470,134 C470,116 470,134 470,116" stroke-width="1" stroke="#ccc" fill="transparent"></path>
+          </g>
+          <g id="trigger-notice" style="visibility: hidden;">
+            <circle cx="580" cy="80" r="10" style="fill:#bb1e1e;stroke:#eee;stroke-width:1"></circle><a
+              xlink:href="#"><text x="578" y="85" font-size="12px" font-family="FontAwesome" fill="#fefefe"></text></a>
+            <title></title>
+          </g>
+          <g id="129232567_group" class="action">
+            <g transform="translate(360,188)">
+              <rect id="129232567" _x="360" _y="188" rx="5" ry="5" width="220" height="32" class="element action">
+              </rect>
+              <a id="129232567_textlink"
+                xlink:href="https://stackoverflow.com/questions/34968082/how-to-add-a-link-inside-an-svg-circle"
+                style="cursor:pointer"><text x="110" y="16" alignment-baseline="middle" text-anchor="middle">
+                  <tspan font-family="FontAwesome" fill="#fff" font-size="15px" alignment-baseline="middle"
+                    text-anchor="middle">&nbsp;&nbsp;</tspan>
+                  <tspan id="129232567_title" font-family="Arial" fill="#fff" font-size="12px"
+                    alignment-baseline="middle" text-anchor="middle">Send email `Welcome to Acelle n...</tspan>
+                </text></a>
+            </g>
+            <g>
+              <g transform="translate(470,258)">
+                <circle id="129232567-plus" _cx="470" _cy="258" ctype="plus" r="16"
+                  style="fill:#fff;stroke:rgb(101, 117, 138);stroke-width:1"></circle><a id="129232567-plus-iconlink"
+                  xlink:href="#" style="cursor:pointer"><text x="0" y="3" font-size="24px" alignment-baseline="middle"
+                    text-anchor="middle" font-family="Arial" fill="#aaa">+</text></a>
+              </g>
+            </g>
+            <g id="129232567-plus_connector">
+              <g>
+                <circle id="circle1" cx="470" cy="220" _cx="470" _cy="220" r="4" fill="#aaa"></circle>
+              </g>
+              <g>
+                <circle id="circle2" cx="470" cy="242" _cx="470" _cy="242" r="0" fill="#aaa"></circle>
+              </g>
+              <path d="M470,242 C470,224 470,242 470,224" stroke-width="1" stroke="#ccc" fill="transparent"></path>
+            </g>
+            <g id="129232567-notice" style="visibility: hidden;">
+              <circle cx="580" cy="188" r="10" style="fill:#bb1e1e;stroke:#eee;stroke-width:1"></circle><a
+                xlink:href="#"><text x="578" y="193" font-size="12px" font-family="FontAwesome"
+                  fill="#fefefe"></text></a>
+              <title></title>
+            </g>
+            <g id="129232567_connector">
+              <g>
+                <circle id="circle1" cx="470" cy="166" _cx="470" _cy="166" r="0" fill="#aaa"></circle>
+              </g>
+              <g>
+                <circle id="circle2" cx="470" cy="188" _cx="470" _cy="188" r="4" fill="#aaa"></circle>
+              </g>
+              <path d="M470,184 C470,166 470,184 470,166" stroke-width="1" stroke="#ccc" fill="transparent"></path>
+            </g>
+            <g id="885780417_group" class="condition">
+              <g transform="translate(360,296)">
+                <rect id="885780417" _x="360" _y="296" rx="5" ry="5" width="220" height="32" class="element condition">
+                </rect><a id="885780417_textlink"
+                  xlink:href="https://stackoverflow.com/questions/34968082/how-to-add-a-link-inside-an-svg-circle"
+                  style="cursor:pointer"><text x="110" y="16" alignment-baseline="middle" text-anchor="middle">
+                    <tspan font-family="FontAwesome" fill="#fff" font-size="15px" alignment-baseline="middle"
+                      text-anchor="middle">&nbsp;&nbsp;</tspan>
+                    <tspan id="885780417_title" font-family="Arial" fill="#fff" font-size="12px"
+                      alignment-baseline="middle" text-anchor="middle">Condition not set up yet</tspan>
+                  </text></a>
+              </g>
+              <g>
+                <g transform="translate(250,381)">
+                  <circle id="885780417-plusYesLabel" _cx="250" _cy="381" ctype="yes" r="16"
+                    style="fill:#fff;stroke:rgb(101, 117, 138);stroke-width:1"></circle><a
+                    id="885780417-plusYesLabel-iconlink" xlink:href="#" style="cursor:pointer"><text x="0" y="2"
+                      font-size="16px" alignment-baseline="middle" text-anchor="middle" font-family="Arial"
+                      fill="#aaa">Y</text></a>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(250,420)">
+                  <circle id="885780417-plusYes" _cx="250" _cy="420" ctype="plus" r="16"
+                    style="fill:#fff;stroke:rgb(101, 117, 138);stroke-width:1"></circle><a
+                    id="885780417-plusYes-iconlink" xlink:href="#" style="cursor:pointer"><text x="0" y="3"
+                      font-size="24px" alignment-baseline="middle" text-anchor="middle" font-family="Arial"
+                      fill="#aaa">+</text></a>
+                </g>
+              </g>
+              <g id="885780417-plusYes_connector">
+                <g>
+                  <circle id="circle1" cx="250" cy="397" _cx="250" _cy="397" r="0" fill="#aaa"></circle>
+                </g>
+                <g>
+                  <circle id="circle2" cx="250" cy="404" _cx="250" _cy="404" r="0" fill="#aaa"></circle>
+                </g>
+                <path d="M250,404 C250,397 250,404 250,397" stroke-width="2" stroke-dasharray="5" stroke="#aaa"
+                  fill="transparent"></path>
+              </g>
+              <g id="885780417-plusYesLabel_connector">
+                <g>
+                  <circle id="circle1" cx="470" cy="328" _cx="470" _cy="328" r="4" fill="#aaa"></circle>
+                </g>
+                <g>
+                  <circle id="circle2" cx="250" cy="365" _cx="250" _cy="365" r="0" fill="#aaa"></circle>
+                </g>
+                <path d="M250,365 C250,332 470,365 470,332" stroke-width="2" stroke-dasharray="5" stroke="#aaa"
+                  fill="transparent"></path>
+              </g>
+              <g>
+                <g transform="translate(690,381)">
+                  <circle id="885780417-plusNoLabel" _cx="690" _cy="381" ctype="no" r="16"
+                    style="fill:#fff;stroke:rgb(101, 117, 138);stroke-width:1"></circle><a
+                    id="885780417-plusNoLabel-iconlink" xlink:href="#" style="cursor:pointer"><text x="0" y="2"
+                      font-size="16px" alignment-baseline="middle" text-anchor="middle" font-family="Arial"
+                      fill="#aaa">N</text></a>
+                </g>
+              </g>
+              <g>
+                <g transform="translate(690,420)">
+                  <circle id="885780417-plusNo" _cx="690" _cy="420" ctype="plus" r="16"
+                    style="fill:#fff;stroke:rgb(101, 117, 138);stroke-width:1"></circle><a
+                    id="885780417-plusNo-iconlink" xlink:href="#" style="cursor:pointer"><text x="0" y="3"
+                      font-size="24px" alignment-baseline="middle" text-anchor="middle" font-family="Arial"
+                      fill="#aaa">+</text></a>
+                </g>
+              </g>
+              <g id="885780417-plusNo_connector">
+                <g>
+                  <circle id="circle1" cx="690" cy="397" _cx="690" _cy="397" r="0" fill="#aaa"></circle>
+                </g>
+                <g>
+                  <circle id="circle2" cx="690" cy="404" _cx="690" _cy="404" r="0" fill="#aaa"></circle>
+                </g>
+                <path d="M690,404 C690,397 690,404 690,397" stroke-width="2" stroke-dasharray="5" stroke="#aaa"
+                  fill="transparent"></path>
+              </g>
+              <g id="885780417-plusNoLabel_connector">
+                <g>
+                  <circle id="circle1" cx="470" cy="328" _cx="470" _cy="328" r="4" fill="#aaa"></circle>
+                </g>
+                <g>
+                  <circle id="circle2" cx="690" cy="365" _cx="690" _cy="365" r="0" fill="#aaa"></circle>
+                </g>
+                <path d="M690,365 C690,332 470,365 470,332" stroke-width="2" stroke-dasharray="5" stroke="#aaa"
+                  fill="transparent"></path>
+              </g>
+              <g id="885780417-notice" style="visibility: visible;">
+                <circle cx="580" cy="296" r="10" style="fill:#bb1e1e;stroke:#eee;stroke-width:1"></circle><a
+                  xlink:href="#"><text x="578" y="301" font-size="12px" font-family="FontAwesome"
+                    fill="#fefefe"></text></a>
+                <title>Condition not set up yet</title>
+              </g>
+              <g id="885780417_connector">
+                <g>
+                  <circle id="circle1" cx="470" cy="274" _cx="470" _cy="274" r="0" fill="#aaa"></circle>
+                </g>
+                <g>
+                  <circle id="circle2" cx="470" cy="296" _cx="470" _cy="296" r="4" fill="#aaa"></circle>
+                </g>
+                <path d="M470,292 C470,274 470,292 470,274" stroke-width="1" stroke="#ccc" fill="transparent"></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</main> -->
