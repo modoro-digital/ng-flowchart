@@ -41,6 +41,7 @@ export class CanvasRendererService {
         let relativeXY = this.getRelativeXY(dragEvent);
 
         relativeXY = relativeXY.map(coord => coord / this.scale);
+        console.log(relativeXY);
         step.zsetPosition(relativeXY, true);
     }
 
@@ -125,6 +126,7 @@ export class CanvasRendererService {
     private adjustDimensions(flow: CanvasFlow, canvasRect: DOMRect) {
 
         let maxRight = 0;
+        let maxLeft = 0;
         let maxBottom = 0;
 
         // TODO this can be better
@@ -132,11 +134,10 @@ export class CanvasRendererService {
             ele => {
                 const rect = ele.getCurrentRect(canvasRect);
                 maxRight = Math.max(rect.right, maxRight);
+                maxLeft = Math.max(rect.left, maxLeft);
                 maxBottom = Math.max(rect.bottom, maxBottom);
             }
         );
-
-
 
         const widthDiff = canvasRect.width - (maxRight - canvasRect.left);
         if (widthDiff < 100) {
@@ -245,7 +246,6 @@ export class CanvasRendererService {
         }
 
         const bestMatch: DropProximity = this.findBestMatchForSteps(dragStep, event, steps);
-
         // TODO make this more efficient. two loops
         steps.forEach(step => {
             if (bestMatch == null || step.nativeElement.id !== bestMatch.step.nativeElement.id) {
@@ -279,8 +279,8 @@ export class CanvasRendererService {
 
     private setRootPosition(step: NgFlowchartStepComponent, dragEvent?: DragEvent) {
         if (!dragEvent) {
-            const canvasStart = this.getCanvasTopStartPosition(step);
-            step.zsetPosition(canvasStart, true);
+            const canvasTop = this.getCanvasTopCenterPosition(step.nativeElement);
+            step.zsetPosition(canvasTop, true);
             return;
         }
 
@@ -306,7 +306,7 @@ export class CanvasRendererService {
 
     private getRelativeXY(dragEvent: DragEvent) {
         const canvasRect = this.getCanvasContentElement().getBoundingClientRect();
-
+        console.log(canvasRect);
         return [
             dragEvent.clientX - canvasRect.left,
             dragEvent.clientY - canvasRect.top
@@ -330,8 +330,12 @@ export class CanvasRendererService {
         const canvasRect = this.getCanvasContentElement().getBoundingClientRect();
         const rootElementHeight = step.nativeElement.getBoundingClientRect().height;
         const rootElementWidth = step.nativeElement.getBoundingClientRect().width;
+        console.log(canvasRect);
+        console.log(rootElementWidth);
         const xCoord = rootElementHeight / 2 + this.options.options.stepGap;
         const scaleYOffset = (1 - this.scale) * 100;
+        console.log(xCoord);
+        console.log(scaleYOffset);
         return [
             500 ,
             xCoord + scaleYOffset

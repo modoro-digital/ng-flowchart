@@ -136,3 +136,6 @@ export const JsonDel = {
         ]
     }
 };
+
+export const Json =
+    [{ id: 'trigger', title: "New contact subscribes to mail list", type: "ElementTrigger", child: 129232567, options: { key: "welcome-new-subscriber", type: "list-subscription", init: "true" }, last_executed: null, evaluationResult: null }, { id: 129232567, title: "Send email `Welcome to Acelle newsletter LIST`", type: "ElementAction", child: 885780417, options: { init: "true", email_uid: "612770c785ddb", template: "true" }, last_executed: null, evaluationResult: null }, { id: 885780417, title: "Condition not set up yet", type: "ElementCondition", child: null, options: { key: "condition", type: "open", email: null, wait: "1 day" }, last_executed: null, evaluationResult: null, childYes: 885780411237, childNo: null }, { id: 885780411237, title: "Condition not set up yet", type: "ElementCondition", child: null, options: { key: "condition", type: "open", email: null, wait: "1 day" }, last_executed: null, evaluationResult: null, childYes: 885780411231237, childNo: null }, { id: 885780411231237, title: "Condition not set up yet", type: "ElementCondition", child: null, options: { key: "condition", type: "open", email: null, wait: "1 day" }, last_executed: null, evaluationResult: null, childYes: null, childNo: null }]

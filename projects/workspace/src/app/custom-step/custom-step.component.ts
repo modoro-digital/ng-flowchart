@@ -50,7 +50,6 @@ export class CustomStepComponent extends NgFlowchartStepComponent {
     }, {
       sibling: true
     });
-    this.canvas.reRender(true);
   }
 
   delete() {

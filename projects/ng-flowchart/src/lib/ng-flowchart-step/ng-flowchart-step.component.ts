@@ -341,13 +341,14 @@ export class NgFlowchartStepComponent<T = any> {
       this._initPosition = [...pos];
       return;
     }
-
+  
     const adjustedX = pos[0] - (offsetCenter ? this.nativeElement.offsetWidth / 2 : 0);
     const adjustedY = pos[1] - (offsetCenter ? this.nativeElement.offsetHeight / 2 : 0);
     this.nativeElement.style.left = `${adjustedX}px`;
     this.nativeElement.style.top = `${adjustedY}px`;
 
     this._currentPosition = [adjustedX, adjustedY];
+ 
   }
 
   zaddChild0(newChild: NgFlowchartStepComponent): boolean {
