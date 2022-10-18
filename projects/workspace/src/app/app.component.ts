@@ -115,7 +115,6 @@ export class AppComponent {
   }
 
   onDropStep(dropEvent: NgFlowchart.DropEvent) {
-    console.log(dropEvent);
   }
 
   

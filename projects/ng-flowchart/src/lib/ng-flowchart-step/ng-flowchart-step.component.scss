@@ -53,7 +53,7 @@
 
 .ngflowchart-step-wrapper[ngflowchart-drop-hover="below"]::before,
 .ngflowchart-step-wrapper[ngflowchart-drop-hover="below"]::after {
-  bottom: 0;
+  bottom: -2rem;
   right: 50%;
   transform: translate(50%, 50%);
 }
