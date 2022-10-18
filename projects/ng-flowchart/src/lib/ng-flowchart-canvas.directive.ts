@@ -75,7 +75,6 @@ export class NgFlowchartCanvasDirective implements OnInit, OnDestroy, AfterViewI
             return;
         }
 
-        console.log(event);
         const type = event.dataTransfer.getData('type');
         if ('FROM_CANVAS' === type) {
             this.canvas.moveStep(event, event.dataTransfer.getData('id'));

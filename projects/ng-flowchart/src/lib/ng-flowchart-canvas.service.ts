@@ -5,7 +5,6 @@ import { CanvasRendererService } from './services/canvas-renderer.service';
 import { DropDataService as DragService } from './services/dropdata.service';
 import { OptionsService } from './services/options.service';
 import { StepManagerService } from './services/step-manager.service';
-import { first } from 'rxjs/operators'
 
 export class CanvasFlow {
   rootStep: NgFlowchartStepComponent;
@@ -74,7 +73,7 @@ export class NgFlowchartCanvasService {
     this.renderer.init(view);
     this.stepmanager.init(view);
 
-    //hack to load the css
+    // hack to load the css
     let ref = this.stepmanager.create({
       template: NgFlowchartStepComponent,
       type: '',
@@ -126,7 +125,7 @@ export class NgFlowchartCanvasService {
       return;
     }
 
-    //TODO just pass dragStep here, but come up with a better name and move the type to flow.model
+    // TODO just pass dragStep here, but come up with a better name and move the type to flow.model
     let componentRef = await this.createStep(this.drag.dragStep as NgFlowchart.PendingStep);
 
     const dropTarget = this.currentDropTarget || null;
@@ -267,7 +266,7 @@ export class NgFlowchartCanvasService {
         return;
       }
 
-      //reparent root
+      // reparent root
       let oldRoot = this.flow.rootStep;
       this.flow.rootStep = step;
       step.zaddChild0(oldRoot);
@@ -312,7 +311,7 @@ export class NgFlowchartCanvasService {
 
   private placeStepAdjacent(newStep: NgFlowchartStepComponent, siblingStep: NgFlowchartStepComponent, isLeft: boolean = true) {
     if (siblingStep.parent) {
-      //find the adjacent steps index in the parents child array
+      // find the adjacent steps index in the parents child array
       const adjacentIndex = siblingStep.parent.children.findIndex(child => child.nativeElement.id == siblingStep.nativeElement.id);
       siblingStep.parent.zaddChildSibling0(newStep, adjacentIndex + (isLeft ? 0 : 1));
     }
@@ -327,10 +326,10 @@ export class NgFlowchartCanvasService {
 
     let newParent = childStep.parent;
     if (newParent) {
-      //we want to remove child and insert our newStep at the same index
+      // we want to remove child and insert our newStep at the same index
       let index = newParent.removeChild(childStep);
       newStep.zaddChild0(childStep);
-      //adjParent.addChild(newStep, index);
+      // adjParent.addChild(newStep, index);
     }
     else { // new root node
       this.setRoot(newStep);
@@ -345,7 +344,7 @@ export class NgFlowchartCanvasService {
       this.options.callbacks.onDropError({
         step: (this.drag.dragStep as NgFlowchart.PendingStep),
         parent: parent || null,
-        error: error
+        error
       })
     }
   }
@@ -359,9 +358,9 @@ export class NgFlowchartCanvasService {
           type: step.type,
           data: step.data
         },
-        parent: parent,
-        error: error
-      })
+        parent,
+        error
+      });
     }
   }
 }
