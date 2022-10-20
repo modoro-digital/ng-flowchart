@@ -1,6 +1,6 @@
 {
   "name": "@modoro/ng-flowchart",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "peerDependencies": {
     "@angular/common": "^10.2.4",
     "@angular/core": "^10.2.4"
